@@ -58,6 +58,8 @@ export const getPrescriptionsByPatient = async (req, res) => {
   try {
     const { patientId } = req.params;
 
+    console.log(patientId)
+
     const prescriptions = await Prescription.find({ patientId })
       .populate("doctorId", "name")
       .sort({ createdAt: -1 });

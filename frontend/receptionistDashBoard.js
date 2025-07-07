@@ -319,8 +319,12 @@ async function renderBillList() {
 //shows the prescription of the patient
 async function fetchPrescriptionAndShow(patient) {
   try {
+    const patientId = patient._id;
     const res = await fetch(
-      `http://localhost:5000/prescription/${patient._id}`
+      `http://localhost:5000/prescription/prescriptions/${patientId}`,
+      {
+        method: "GET"
+      }
     );
     const data = await res.json();
     if (!res.ok) throw new Error(data.message);

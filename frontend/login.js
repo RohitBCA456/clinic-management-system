@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/user/login", {
+      const response = await fetch("https://clinic-management-system-n38p.onrender.com/user/login", {
         method: "POST",
         credentials: "include", // VERY IMPORTANT to allow cookies to be saved
         headers: {

@@ -65,7 +65,7 @@ generateBillBtn.onclick = () => {
 
 // logout functionality for user(receptionist & doctor)
 logoutBtn.onclick = async () => {
-  const response = await fetch("http://localhost:5000/user/logout", {
+  const response = await fetch("https://clinic-management-system-n38p.onrender.com/user/logout", {
     method: "GET",
     credentials: "include",
   });
@@ -90,7 +90,7 @@ patientForm.onsubmit = async (e) => {
     return alert("All fields are required.");
 
   try {
-    const res = await fetch("http://localhost:5000/patient/registerPatient", {
+    const res = await fetch("https://clinic-management-system-n38p.onrender.com/patient/registerPatient", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, age, gender, contact }),
@@ -111,7 +111,7 @@ async function renderPatients() {
   patientTableBody.innerHTML = "";
   try {
     const res = await fetch(
-      "http://localhost:5000/patient/getPatientsByPrescription"
+      "https://clinic-management-system-n38p.onrender.com/patient/getPatientsByPrescription"
     );
     const data = await res.json();
     if (!res.ok) throw new Error(data.message);
@@ -141,7 +141,7 @@ async function renderPatients() {
 async function renderHistory() {
   historyTableBody.innerHTML = "";
   try {
-    const res = await fetch("http://localhost:5000/patient/getPatientHistory");
+    const res = await fetch("https://clinic-management-system-n38p.onrender.com/patient/getPatientHistory");
     const data = await res.json();
     if (!res.ok) throw new Error(data.message);
 
@@ -282,7 +282,7 @@ async function renderBillList() {
   billTableBody.innerHTML = "";
   try {
     const res = await fetch(
-      "http://localhost:5000/bill/getPatientsWithoutBill"
+      "https://clinic-management-system-n38p.onrender.com/bill/getPatientsWithoutBill"
     );
     const data = await res.json();
     if (!res.ok) throw new Error(data.message);
@@ -321,7 +321,7 @@ async function fetchPrescriptionAndShow(patient) {
   try {
     const patientId = patient._id;
     const res = await fetch(
-      `http://localhost:5000/prescription/prescriptions/${patientId}`,
+      `https://clinic-management-system-n38p.onrender.com/prescription/prescriptions/${patientId}`,
       {
         method: "GET"
       }
@@ -353,7 +353,7 @@ billForm.onsubmit = async (e) => {
   }
 
   try {
-    const res = await fetch("http://localhost:5000/bill/billing", {
+    const res = await fetch("https://clinic-management-system-n38p.onrender.com/bill/billing", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

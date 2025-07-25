@@ -19,7 +19,7 @@ seePatientsBtn.onclick = async () => {
   patientTableSection.classList.remove("hidden");
 
   try {
-    const res = await fetch("http://localhost:5000/patient/getPatientsByPrescription", {
+    const res = await fetch("https://clinic-management-system-n38p.onrender.com/patient/getPatientsByPrescription", {
       credentials: "include",
     });
 
@@ -74,7 +74,7 @@ prescriptionForm.onsubmit = async (e) => {
 
   try {
 
-    const res = await fetch("http://localhost:5000/prescription/createPrescriptions", {
+    const res = await fetch("https://clinic-management-system-n38p.onrender.com/prescription/createPrescriptions", {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -104,7 +104,7 @@ prescriptionForm.onsubmit = async (e) => {
 // Logout function
 logoutBtn.onclick = async () => {
   try {
-    const res = await fetch("http://localhost:5000/user/logout", {
+    const res = await fetch("https://clinic-management-system-n38p.onrender.com/user/logout", {
       method: "GET",
       credentials: "include",
     });
